@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Monogame_Sample_Project.App_Data;
 
 namespace Monogame_Sample_Project
 {
@@ -27,7 +28,11 @@ namespace Monogame_Sample_Project
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            graphics.IsFullScreen = false;
+            graphics.PreferMultiSampling = true;
+            graphics.PreferredBackBufferHeight = (int)ScreenManager.Instance.Dimensions.Y;
+            graphics.PreferredBackBufferWidth = (int)ScreenManager.Instance.Dimensions.X;
+            graphics.ApplyChanges();
             base.Initialize();
         }
 
@@ -39,7 +44,7 @@ namespace Monogame_Sample_Project
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            ScreenManager.Instance.LoadContent(Content);
             // TODO: use this.Content to load your game content here
         }
 
@@ -50,6 +55,7 @@ namespace Monogame_Sample_Project
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+            ScreenManager.Instance.UnloadContent();
         }
 
         /// <summary>
@@ -61,7 +67,7 @@ namespace Monogame_Sample_Project
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            ScreenManager.Instance.Update(gameTime);
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -74,9 +80,8 @@ namespace Monogame_Sample_Project
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            ScreenManager.Instance.Draw(spriteBatch);
             // TODO: Add your drawing code here
-
             base.Draw(gameTime);
         }
     }
