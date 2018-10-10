@@ -33,9 +33,7 @@ namespace Monogame_Sample_Project.App_Data
         public Vector2 Dimensions { get; private set; }
         public ContentManager Content { get; private set; }
 
-        #region ScreenSettings
         public bool IsFullScreen { get; private set; }
-        #endregion
 
         private static ScreenManager screen;
         public static ScreenManager Instance
@@ -70,6 +68,5 @@ namespace Monogame_Sample_Project.App_Data
         {
             currentScreen.Draw(spriteBatch);
         }
-
     }
 }

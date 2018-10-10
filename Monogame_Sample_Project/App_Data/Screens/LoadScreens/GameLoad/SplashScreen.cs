@@ -29,7 +29,7 @@ namespace Monogame_Sample_Project.App_Data.Screens.LoadScreens.GameLoad
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            if (Keyboard.GetState().IsKeyDown(Keys.Space))
+            if (gameTime.TotalGameTime > TimeSpan.FromSeconds(3) || Keyboard.GetState().IsKeyDown(Keys.Space))
             {
                 ScreenManager.Instance.LoadGameScreen(new SecondSplash());
             }
