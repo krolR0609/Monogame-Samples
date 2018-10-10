@@ -29,7 +29,6 @@ namespace Monogame_Sample_Project.App_Data.Screens.LoadScreens.GameLoad
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            
         }
 
         public override void Draw(SpriteBatch spriteBatch)
