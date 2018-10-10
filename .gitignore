@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Monogame_Sample_Project/App_Data/Screens/Loading/GameLoad/SplashScreen.cs
+/Monogame_Sample_Project/App_Data/Screens/Loading/GameLoad/SecondSplash.cs
+/Monogame_Sample_Project/App_Data/Screens/Loading/GameLoad

@@ -37,3 +37,10 @@
 /processorParam:TextureFormat=Color
 /build:Assets/MonoGameLogo.svg.png;Assets/MonoGameLogo.png
 
+#begin Fonts/Font.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Font.spritefont
+

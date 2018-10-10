@@ -42,11 +42,15 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="App_Data\Controllers\MenuController.cs" />
     <Compile Include="App_Data\ScreenManager.cs" />
-    <Compile Include="App_Data\Screens\LoadScreens\GameLoad\SecondSplash.cs" />
-    <Compile Include="App_Data\Screens\LoadScreens\GameLoad\SplashScreen.cs" />
+    <Compile Include="App_Data\Screens\Loading\GameLoad\SecondSplash.cs" />
+    <Compile Include="App_Data\Screens\Loading\GameLoad\SplashScreen.cs" />
+    <Compile Include="App_Data\Screens\Menu\BaseMenu.cs" />
+    <Compile Include="App_Data\Screens\Menu\MainMenu.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Models\Graphics\GameScreen.cs" />
+    <Compile Include="Models\UI\Menu\MenuItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
