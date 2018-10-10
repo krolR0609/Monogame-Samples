@@ -17,7 +17,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <OutputPath>.\</OutputPath>
     <DefineConstants>DEBUG;TRACE;LINUX</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -43,7 +43,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App_Data\ScreenManager.cs" />
+    <Compile Include="App_Data\Screens\LoadScreens\GameLoad\SecondSplash.cs" />
+    <Compile Include="App_Data\Screens\LoadScreens\GameLoad\SplashScreen.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Models\Graphics\GameScreen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

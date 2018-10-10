@@ -28,7 +28,7 @@ namespace Monogame_Sample_Project
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            graphics.IsFullScreen = false;
+            graphics.IsFullScreen = ScreenManager.Instance.IsFullScreen;
             graphics.PreferMultiSampling = true;
             graphics.PreferredBackBufferHeight = (int)ScreenManager.Instance.Dimensions.Y;
             graphics.PreferredBackBufferWidth = (int)ScreenManager.Instance.Dimensions.X;
@@ -79,9 +79,10 @@ namespace Monogame_Sample_Project
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
+            spriteBatch.Begin();
             ScreenManager.Instance.Draw(spriteBatch);
-            // TODO: Add your drawing code here
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
