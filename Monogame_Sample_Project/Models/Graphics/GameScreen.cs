@@ -12,9 +12,21 @@ namespace Monogame_Sample_Project.Models.Graphics
 {
     public class GameScreen
     {
+        public GameScreen()
+        {
+        }
+
+        #region Protected
+
         protected ContentManager content;
 
+        #endregion
+
+        #region Public
+
         public string Name { get; protected set; }
+
+        #endregion
 
         public virtual void LoadContent()
         {

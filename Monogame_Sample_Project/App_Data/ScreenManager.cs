@@ -13,39 +13,46 @@ namespace Monogame_Sample_Project.App_Data
 {
     public class ScreenManager
     {
-        private GameScreen currentScreen;
-
         public ScreenManager()
         {
             Dimensions = new Vector2(640, 480);
-            currentScreen = new SplashScreen();
-
             IsFullScreen = false;
+
+            currentScreen = new SplashScreen();
         }
+
+        #region Private
+
+        private GameScreen currentScreen;
+        private static ScreenManager screenManager;
+
+        #endregion
+
+        #region Public
+
+        public static ScreenManager Instance
+        {
+            get
+            {
+                if (screenManager == null)
+                {
+                    screenManager = new ScreenManager();
+                }
+                return screenManager;
+            }
+        }
+
+        public Vector2 Dimensions { get; private set; }
+        public ContentManager Content { get; private set; }
+        public bool IsFullScreen { get; private set; }
+
+        #endregion
 
         public void LoadGameScreen(GameScreen gameScreen)
         {
             currentScreen.UnloadContent();
             currentScreen = gameScreen;
             currentScreen.LoadContent();
-        }
-
-        public Vector2 Dimensions { get; private set; }
-        public ContentManager Content { get; private set; }
-
-        public bool IsFullScreen { get; private set; }
-
-        private static ScreenManager screen;
-        public static ScreenManager Instance
-        {
-            get
-            {
-                if (screen == null)
-                {
-                    screen = new ScreenManager();
-                }
-                return screen;
-            }
         }
 
         public void LoadContent(ContentManager content)

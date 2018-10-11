@@ -12,8 +12,13 @@ namespace Monogame_Sample_Project.App_Data.Screens.LoadScreens.GameLoad
 {
     public class SplashScreen : GameScreen
     {
-        Texture2D logoTexture;
-        string path;
+        #region Private
+
+        private Texture2D logoTexture;
+        private string path;
+
+        #endregion
+
         public override void LoadContent()
         {
             base.LoadContent();
