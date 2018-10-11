@@ -14,30 +14,51 @@ namespace Monogame_Sample_Project.Models.Images
 {
     public class Image
     {
-        public float Alpha;
+        #region Public
 
+        public float Alpha;
         public string Text;
         public string FontName;
         public string Path;
-        public string Effects;  //String for storage ImageEffect
         public bool IsActive;
+
+        public string Effects; //String for storage ImageEffect
 
         public Vector2 Position;
         public Vector2 Scale;
 
         public Rectangle SourceRect;
-
-        public FadeEffect FadeEffect;
+        public FadeEffect FadeEffect; //Link for XML file.
 
         [XmlIgnore]
         public Texture2D Texture;
+
+        #endregion
+
+        #region Private
 
         private Vector2 origin;
         private ContentManager content;
         private RenderTarget2D renderTarget;
         private SpriteFont font;
-
         private Dictionary<string, ImageEffect> effectList;
+
+        #endregion
+
+        public Image()
+        {
+            Path = String.Empty;
+            Text = String.Empty;
+            Effects = String.Empty;
+
+            FontName = "Arial";
+            Position = Vector2.Zero;
+            Scale = Vector2.One;
+            Alpha = 1.0f;
+            SourceRect = Rectangle.Empty;
+
+            effectList = new Dictionary<string, ImageEffect>();
+        }
 
         private void SetEffect<T>(ref T effect)
         {
@@ -54,7 +75,6 @@ namespace Monogame_Sample_Project.Models.Images
 
             effectList.Add(effect.GetType().Name, (effect as ImageEffect));
         }
-
         public void ActivateEffect(string effect)
         {
             if (effectList.ContainsKey(effect))
@@ -64,7 +84,6 @@ namespace Monogame_Sample_Project.Models.Images
                 effectList[effect].LoadContent(ref obj);
             }
         }
-
         public void DeactivateEffect(string effect)
         {
             if (effectList.ContainsKey(effect))
@@ -72,21 +91,6 @@ namespace Monogame_Sample_Project.Models.Images
                 effectList[effect].IsActive = false;
                 effectList[effect].UnloadContent();
             }
-        }
-
-        public Image()
-        {
-            Path = String.Empty;
-            Text = String.Empty;
-            Effects = String.Empty;
-
-            FontName = "Arial";
-            Position = Vector2.Zero;
-            Scale = Vector2.One;
-            Alpha = 1.0f;
-            SourceRect = Rectangle.Empty;
-
-            effectList = new Dictionary<string, ImageEffect>();
         }
 
         public void LoadContent()
@@ -153,7 +157,6 @@ namespace Monogame_Sample_Project.Models.Images
                 }
             }
         }
-
         public void UnloadContent()
         {
             content.Unload();
@@ -162,7 +165,6 @@ namespace Monogame_Sample_Project.Models.Images
                 DeactivateEffect(effect.Key);
             }
         }
-
         public void Update(GameTime gameTime)
         {
             foreach(var effect in effectList)
@@ -173,7 +175,6 @@ namespace Monogame_Sample_Project.Models.Images
                 }
             }
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             origin = new Vector2(SourceRect.Width / 2, SourceRect.Height / 2);

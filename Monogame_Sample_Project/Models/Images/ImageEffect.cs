@@ -9,7 +9,7 @@ namespace Monogame_Sample_Project.Models.Images
 {
     public class ImageEffect
     {
-        protected Image image;
+        protected Image imageRef;
 
         public bool IsActive;
 
@@ -20,13 +20,11 @@ namespace Monogame_Sample_Project.Models.Images
 
         public virtual void LoadContent(ref Image Image)
         {
-            this.image = Image;
+            this.imageRef = Image;
         }
-
         public virtual void UnloadContent()
         {
         }
-
         public virtual void Update(GameTime gameTime)
         {
         }

@@ -70,17 +70,14 @@ namespace Monogame_Sample_Project.App_Data
             this.Content = new ContentManager(content.ServiceProvider, "Content");
             currentScreen.LoadContent();
         }
-
         public void UnloadContent()
         {
             currentScreen.UnloadContent();
         }
-
         public void Update(GameTime gameTime)
         {
             currentScreen.Update(gameTime);
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             currentScreen.Draw(spriteBatch);
