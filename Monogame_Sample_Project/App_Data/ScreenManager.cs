@@ -58,7 +58,7 @@ namespace Monogame_Sample_Project.App_Data
         public void LoadGameScreen(string path)
         {
             currentScreen.UnloadContent();
-            currentScreen = xmlGameScreenManger.Load($"{path}.xml"); ;
+            currentScreen = xmlGameScreenManger.Load($"{path}.xml");
             currentScreen.LoadContent();
         }
 
