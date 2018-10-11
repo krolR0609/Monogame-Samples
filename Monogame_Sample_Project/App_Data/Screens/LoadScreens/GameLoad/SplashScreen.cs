@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Monogame_Sample_Project.Models.Graphics;
+using Monogame_Sample_Project.Models.Images;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,36 +22,37 @@ namespace Monogame_Sample_Project.App_Data.Screens.LoadScreens.GameLoad
 
         #region Public
 
-        public string Path;
+        public Image Image;
 
         #endregion
 
         public override void LoadContent()
         {
             base.LoadContent();
-            logoTexture = content.Load<Texture2D>(Path);
+            Image.LoadContent();
         }
 
         public override void UnloadContent()
         {
             base.UnloadContent();
+            Image.UnloadContent();
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            if (Keyboard.GetState().IsKeyDown(Keys.Space) && !prevState.IsKeyDown(Keys.Space))
-            {
-                ScreenManager.Instance.LoadGameScreen("Load/SplashScreen");
-            }
+            Image.Update(gameTime);
+
+            //if (Keyboard.GetState().IsKeyDown(Keys.Space) && !prevState.IsKeyDown(Keys.Space))
+            //{
+            //    ScreenManager.Instance.LoadGameScreen("Load/SplashScreen");
+            //}
             prevState = Keyboard.GetState();
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(logoTexture, 
-                new Rectangle(0, 0, (int)ScreenManager.Instance.Dimensions.X, (int)ScreenManager.Instance.Dimensions.Y),
-                Color.White);
+            Image.Draw(spriteBatch);
         }
     }
 }

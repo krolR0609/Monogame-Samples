@@ -49,6 +49,9 @@ namespace Monogame_Sample_Project.App_Data
             }
         }
 
+        public GraphicsDevice GraphicsDevice;
+        public SpriteBatch SpriteBatch;
+
         public Vector2 Dimensions { get; private set; }
         public ContentManager Content { get; private set; }
         public bool IsFullScreen { get; private set; }
