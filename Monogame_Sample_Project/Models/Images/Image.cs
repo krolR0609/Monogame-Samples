@@ -19,7 +19,7 @@ namespace Monogame_Sample_Project.Models.Images
         public string Text;
         public string FontName;
         public string Path;
-        public string Effects;//String for storage ImageEffect
+        public string Effects;  //String for storage ImageEffect
         public bool IsActive;
 
         public Vector2 Position;
@@ -28,8 +28,6 @@ namespace Monogame_Sample_Project.Models.Images
         public Rectangle SourceRect;
 
         public FadeEffect FadeEffect;
-
-
 
         [XmlIgnore]
         public Texture2D Texture;
@@ -40,7 +38,6 @@ namespace Monogame_Sample_Project.Models.Images
         private SpriteFont font;
 
         private Dictionary<string, ImageEffect> effectList;
-        
 
         private void SetEffect<T>(ref T effect)
         {
