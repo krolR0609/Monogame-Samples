@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Monogame_Sample_Project.App_Data;
+using Monogame_Sample_Project.Models.Images.Effects;
 
 namespace Monogame_Sample_Project.Models.Images
 {
@@ -18,11 +19,14 @@ namespace Monogame_Sample_Project.Models.Images
         public string Text;
         public string FontName;
         public string Path;
+        public bool IsActive;
 
         public Vector2 Position;
         public Vector2 Scale;
 
         public Rectangle SourceRect;
+
+        public FadeEffect FadeEffect;
 
         [XmlIgnore]
         public Texture2D Texture;
@@ -32,15 +36,57 @@ namespace Monogame_Sample_Project.Models.Images
         private RenderTarget2D renderTarget;
         private SpriteFont font;
 
+        private Dictionary<string, ImageEffect> effectList;
+        public string Effects;
+
+        private void SetEffect<T>(ref T effect)
+        {
+            if(effect == null)
+            {
+                effect = (T)Activator.CreateInstance(typeof(T));
+            }
+            else
+            {
+                (effect as ImageEffect).IsActive = true;
+                var obj = this;
+                (effect as ImageEffect).LoadContent(ref obj);
+            }
+
+            effectList.Add(effect.GetType().Name, (effect as ImageEffect));
+        }
+
+        public void ActivateEffect(string effect)
+        {
+            if (effectList.ContainsKey(effect))
+            {
+                effectList[effect].IsActive = true;
+                var obj = this;
+                effectList[effect].LoadContent(ref obj);
+            }
+        }
+
+        public void DeactivateEffect(string effect)
+        {
+            if (effectList.ContainsKey(effect))
+            {
+                effectList[effect].IsActive = false;
+                effectList[effect].UnloadContent();
+            }
+        }
+
         public Image()
         {
             Path = String.Empty;
             Text = String.Empty;
+            Effects = String.Empty;
+
             FontName = "Arial";
             Position = Vector2.Zero;
             Scale = Vector2.One;
             Alpha = 1.0f;
             SourceRect = Rectangle.Empty;
+
+            effectList = new Dictionary<string, ImageEffect>();
         }
 
         public void LoadContent()
@@ -51,8 +97,8 @@ namespace Monogame_Sample_Project.Models.Images
             {
                 Texture = content.Load<Texture2D>(Path);
             }
-
             font = content.Load<SpriteFont>(FontName);
+
             Vector2 dimensions = Vector2.Zero;
 
             if (Texture != null)
@@ -95,15 +141,37 @@ namespace Monogame_Sample_Project.Models.Images
 
             Texture = renderTarget;
             ScreenManager.Instance.GraphicsDevice.SetRenderTarget(null);
+
+            SetEffect<FadeEffect>(ref FadeEffect);
+
+            if(Effects != String.Empty)
+            {
+                string[] split = Effects.Split(':');
+                foreach (string item in split)
+                {
+                    ActivateEffect(item);
+                }
+            }
         }
 
         public void UnloadContent()
         {
             content.Unload();
+            foreach (var effect in effectList)
+            {
+                DeactivateEffect(effect.Key);
+            }
         }
 
         public void Update(GameTime gameTime)
         {
+            foreach(var effect in effectList)
+            {
+                if (effect.Value.IsActive)
+                {
+                    effect.Value.Update(gameTime);
+                }
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)

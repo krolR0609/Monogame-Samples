@@ -15,7 +15,6 @@ namespace Monogame_Sample_Project.App_Data.Screens.LoadScreens.GameLoad
     {
         #region Private
 
-        private Texture2D logoTexture;
         private KeyboardState prevState;
 
         #endregion
@@ -43,10 +42,6 @@ namespace Monogame_Sample_Project.App_Data.Screens.LoadScreens.GameLoad
             base.Update(gameTime);
             Image.Update(gameTime);
 
-            //if (Keyboard.GetState().IsKeyDown(Keys.Space) && !prevState.IsKeyDown(Keys.Space))
-            //{
-            //    ScreenManager.Instance.LoadGameScreen("Load/SplashScreen");
-            //}
             prevState = Keyboard.GetState();
         }
 

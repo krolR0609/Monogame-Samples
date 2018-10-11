@@ -29,7 +29,7 @@ namespace Monogame_Sample_Project.App_Data
 
         #region Private
 
-        private GameScreen currentScreen;
+        private static GameScreen currentScreen;
         private static ScreenManager screenManager;
         private XmlManager<GameScreen> xmlGameScreenManger;
 
