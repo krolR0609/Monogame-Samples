@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Monogame_Sample_Project.App_Data.Managers;
 using Monogame_Sample_Project.App_Data.Screens.LoadScreens.GameLoad;
 using Monogame_Sample_Project.Models.Graphics;
 
@@ -17,14 +18,20 @@ namespace Monogame_Sample_Project.App_Data
         {
             Dimensions = new Vector2(640, 480);
             IsFullScreen = false;
-
             currentScreen = new SplashScreen();
+
+            xmlGameScreenManger = new XmlManager<GameScreen>
+            {
+                Type = currentScreen.Type
+            };
+            currentScreen = xmlGameScreenManger.Load($"Load/SplashScreen.xml");
         }
 
         #region Private
 
         private GameScreen currentScreen;
         private static ScreenManager screenManager;
+        private XmlManager<GameScreen> xmlGameScreenManger;
 
         #endregion
 
@@ -48,10 +55,10 @@ namespace Monogame_Sample_Project.App_Data
 
         #endregion
 
-        public void LoadGameScreen(GameScreen gameScreen)
+        public void LoadGameScreen(string path)
         {
             currentScreen.UnloadContent();
-            currentScreen = gameScreen;
+            currentScreen = xmlGameScreenManger.Load($"{path}.xml"); ;
             currentScreen.LoadContent();
         }
 

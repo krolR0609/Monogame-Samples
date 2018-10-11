@@ -7,13 +7,15 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Monogame_Sample_Project.App_Data;
+using System.Xml.Serialization;
 
 namespace Monogame_Sample_Project.Models.Graphics
 {
-    public class GameScreen
+    public class GameScreen : IDisposable
     {
         public GameScreen()
         {
+            Type = this.GetType();
         }
 
         #region Protected
@@ -24,7 +26,8 @@ namespace Monogame_Sample_Project.Models.Graphics
 
         #region Public
 
-        public string Name { get; protected set; }
+        [XmlIgnore]
+        public Type Type { get; set; }
 
         #endregion
 
@@ -44,6 +47,11 @@ namespace Monogame_Sample_Project.Models.Graphics
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
+        }
+
+        public void Dispose()
+        {
+            UnloadContent();
         }
     }
 }

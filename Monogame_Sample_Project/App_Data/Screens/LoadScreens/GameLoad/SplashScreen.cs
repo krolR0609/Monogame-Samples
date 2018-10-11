@@ -15,15 +15,20 @@ namespace Monogame_Sample_Project.App_Data.Screens.LoadScreens.GameLoad
         #region Private
 
         private Texture2D logoTexture;
-        private string path;
+        private KeyboardState prevState;
+
+        #endregion
+
+        #region Public
+
+        public string Path;
 
         #endregion
 
         public override void LoadContent()
         {
             base.LoadContent();
-            path = "Assets/Logo";
-            logoTexture = content.Load<Texture2D>(path);
+            logoTexture = content.Load<Texture2D>(Path);
         }
 
         public override void UnloadContent()
@@ -34,10 +39,11 @@ namespace Monogame_Sample_Project.App_Data.Screens.LoadScreens.GameLoad
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            if (gameTime.TotalGameTime > TimeSpan.FromSeconds(3) || Keyboard.GetState().IsKeyDown(Keys.Space))
+            if (Keyboard.GetState().IsKeyDown(Keys.Space) && !prevState.IsKeyDown(Keys.Space))
             {
-                ScreenManager.Instance.LoadGameScreen(new SecondSplash());
+                ScreenManager.Instance.LoadGameScreen("Load/SplashScreen");
             }
+            prevState = Keyboard.GetState();
         }
 
         public override void Draw(SpriteBatch spriteBatch)
