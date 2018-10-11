@@ -30,6 +30,5 @@ namespace Monogame_Sample_Project.Models.Images
         public virtual void Update(GameTime gameTime)
         {
         }
-
     }
 }
