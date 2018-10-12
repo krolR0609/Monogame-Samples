@@ -12,6 +12,11 @@ namespace Monogame_Sample_Project.App_Data.Managers
     {
         public Type Type;
 
+        public XmlManager()
+        {
+            Type = typeof(T);
+        }
+
         public T Load(string path)
         {
             T instance;

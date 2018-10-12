@@ -116,6 +116,7 @@
     <Folder Include="Models\Sprites\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Load\ScreenManager.xml" />
     <Content Include="Load\SplashScreen.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

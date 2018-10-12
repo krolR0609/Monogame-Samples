@@ -42,6 +42,11 @@ namespace Monogame_Sample_Project.App_Data.Screens.LoadScreens.GameLoad
             base.Update(gameTime);
             Image.Update(gameTime);
 
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && !ScreenManager.Instance.IsTransitioning)
+            {
+                ScreenManager.Instance.ChangeScreens("SplashScreen");
+            }
+
             prevState = Keyboard.GetState();
         }
 

@@ -2,10 +2,5 @@
 <SplashScreen>
   <Image>
     <Path>Assets/Logo</Path>
-    <Effects>FadeEffect</Effects>
-    <FadeEffect>
-      <FadeSpeed>0.5</FadeSpeed>
-    </FadeEffect>
-    <IsActive>true</IsActive>
   </Image>
 </SplashScreen>
