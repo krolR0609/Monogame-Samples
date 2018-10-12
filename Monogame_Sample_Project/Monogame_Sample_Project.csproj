@@ -123,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Load\ScreenManager.xml" />
+    <Content Include="Load\LogoScreen.xml" />
     <Content Include="Load\SplashScreen.xml" />
     <Content Include="Load\TitleMenu.xml" />
   </ItemGroup>

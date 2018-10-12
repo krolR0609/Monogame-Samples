@@ -60,6 +60,7 @@ namespace Monogame_Sample_Project.Models.Images
             effectList = new Dictionary<string, ImageEffect>();
         }
 
+
         private void SetEffect<T>(ref T effect)
         {
             if(effect == null)

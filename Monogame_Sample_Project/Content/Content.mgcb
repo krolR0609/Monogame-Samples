@@ -20,6 +20,18 @@
 /processorParam:TextureFormat=Compressed
 /build:Arial.spritefont
 
+#begin Assets/CompanyLogo.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Assets/CompanyLogo.png
+
 #begin Assets/Logo.jpg
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -43,18 +55,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/MonoGameLogo.svg.png;Assets/MonoGameLogo.png
-
-#begin ScreenManager/FadeImage.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:ScreenManager/FadeImage.png
 
 #begin ScreenManager/FadeImage.png
 /importer:TextureImporter
