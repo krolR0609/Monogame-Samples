@@ -42,6 +42,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="App_Data\Managers\InputManager.cs" />
     <Compile Include="App_Data\Managers\XmlManager.cs" />
     <Compile Include="App_Data\ScreenManager.cs" />
     <Compile Include="App_Data\Screens\LoadScreens\GameLoad\SplashScreen.cs" />

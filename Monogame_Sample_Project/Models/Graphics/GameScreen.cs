@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Monogame_Sample_Project.App_Data;
 using System.Xml.Serialization;
+using Monogame_Sample_Project.App_Data.Managers;
 
 namespace Monogame_Sample_Project.Models.Graphics
 {
@@ -39,6 +40,7 @@ namespace Monogame_Sample_Project.Models.Graphics
         }
         public virtual void Update(GameTime gameTime)
         {
+            InputManager.Instance.Update();
         }
         public virtual void Draw(SpriteBatch spriteBatch)
         {

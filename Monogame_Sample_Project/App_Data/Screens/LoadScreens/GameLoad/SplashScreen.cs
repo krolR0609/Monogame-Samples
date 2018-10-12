@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Monogame_Sample_Project.App_Data.Managers;
 using Monogame_Sample_Project.Models.Graphics;
 using Monogame_Sample_Project.Models.Images;
 using System;
@@ -42,7 +43,7 @@ namespace Monogame_Sample_Project.App_Data.Screens.LoadScreens.GameLoad
             base.Update(gameTime);
             Image.Update(gameTime);
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && !ScreenManager.Instance.IsTransitioning)
+            if (InputManager.Instance.KeyPressed(Keys.Enter, Keys.Z))
             {
                 ScreenManager.Instance.ChangeScreens("SplashScreen");
             }
