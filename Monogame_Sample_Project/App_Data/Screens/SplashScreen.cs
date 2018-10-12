@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Monogame_Sample_Project.App_Data.Screens.LoadScreens.GameLoad
+namespace Monogame_Sample_Project.App_Data.Screens
 {
     public class SplashScreen : GameScreen
     {
@@ -45,7 +45,7 @@ namespace Monogame_Sample_Project.App_Data.Screens.LoadScreens.GameLoad
 
             if (InputManager.Instance.KeyPressed(Keys.Enter, Keys.Z))
             {
-                ScreenManager.Instance.ChangeScreens("SplashScreen");
+                ScreenManager.Instance.ChangeScreens("TitleScreen");
             }
 
             prevState = Keyboard.GetState();

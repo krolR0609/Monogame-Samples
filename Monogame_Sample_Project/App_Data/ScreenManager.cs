@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Monogame_Sample_Project.App_Data.Managers;
-using Monogame_Sample_Project.App_Data.Screens.LoadScreens.GameLoad;
+using Monogame_Sample_Project.App_Data.Screens;
 using Monogame_Sample_Project.Models.Graphics;
 using Monogame_Sample_Project.Models.Images;
 
@@ -74,7 +74,7 @@ namespace Monogame_Sample_Project.App_Data
 
         public void ChangeScreens(string screenName)
         {
-            nextScreen = (GameScreen)Activator.CreateInstance(Type.GetType("Monogame_Sample_Project.App_Data.Screens.LoadScreens.GameLoad." + screenName));
+            nextScreen = (GameScreen)Activator.CreateInstance(Type.GetType(GameSettings.Instance.SCREENS_NAMESPACE + screenName));
             Image.IsActive = true;
             Image.FadeEffect.Increase = true;
             Image.Alpha = 0.0f;

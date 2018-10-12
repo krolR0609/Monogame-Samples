@@ -42,12 +42,17 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="App_Data\GameSettings.cs" />
     <Compile Include="App_Data\Managers\InputManager.cs" />
+    <Compile Include="App_Data\Managers\MenuManager.cs" />
     <Compile Include="App_Data\Managers\XmlManager.cs" />
     <Compile Include="App_Data\ScreenManager.cs" />
-    <Compile Include="App_Data\Screens\LoadScreens\GameLoad\SplashScreen.cs" />
+    <Compile Include="App_Data\Screens\SplashScreen.cs" />
+    <Compile Include="App_Data\Screens\TitleScreen.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Models\Graphics\GameScreen.cs" />
+    <Compile Include="Models\Graphics\Menu\Menu.cs" />
+    <Compile Include="Models\Graphics\Menu\MenuItem.cs" />
     <Compile Include="Models\Images\Effects\FadeEffect.cs" />
     <Compile Include="Models\Images\Image.cs" />
     <Compile Include="Models\Images\ImageEffect.cs" />
@@ -119,6 +124,7 @@
   <ItemGroup>
     <Content Include="Load\ScreenManager.xml" />
     <Content Include="Load\SplashScreen.xml" />
+    <Content Include="Load\TitleMenu.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
