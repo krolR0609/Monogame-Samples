@@ -119,7 +119,6 @@ namespace Monogame_Sample_Project.Models.Images
             {
                 dimensions.Y = font.MeasureString(Text).Y;
             }
-            dimensions.X += font.MeasureString(Text).X;
 
             if(SourceRect == Rectangle.Empty)
             {
