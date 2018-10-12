@@ -107,7 +107,6 @@ namespace Monogame_Sample_Project.App_Data
             }
         }
 
-
         public void LoadContent(ContentManager content)
         {
             this.Content = new ContentManager(content.ServiceProvider, "Content");
