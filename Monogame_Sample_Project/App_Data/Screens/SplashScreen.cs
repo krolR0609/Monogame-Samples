@@ -30,6 +30,9 @@ namespace Monogame_Sample_Project.App_Data.Screens
         {
             base.LoadContent();
             Image.LoadContent();
+            Image.Position = new Vector2(
+               ((ScreenManager.Instance.Dimensions.X / 2) - (Image.Texture.Width / 2)),
+               ((ScreenManager.Instance.Dimensions.Y / 2) - (Image.Texture.Height / 2)));
         }
 
         public override void UnloadContent()

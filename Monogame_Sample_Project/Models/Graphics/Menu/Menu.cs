@@ -67,7 +67,7 @@ namespace Monogame_Sample_Project.Models.Graphics.Menu
                 else if (Axis == "Y")
                 {
                     item.Image.Position = new Vector2(
-                        (ScreenManager.Instance.Dimensions.X - (item.Image.SourceRect.Width / 2)) / 2, dimensions.Y);
+                        (ScreenManager.Instance.Dimensions.X - item.Image.SourceRect.Width) / 2, dimensions.Y);
                 }
                 dimensions += new Vector2(item.Image.SourceRect.Width, item.Image.SourceRect.Height);
             }

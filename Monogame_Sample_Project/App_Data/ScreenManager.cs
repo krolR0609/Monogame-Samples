@@ -27,7 +27,7 @@ namespace Monogame_Sample_Project.App_Data
             {
                 Type = currentScreen.Type
             };
-            currentScreen = xmlGameScreenManger.Load($"Load/SplashScreen.xml");
+            currentScreen = xmlGameScreenManger.Load($"Load/LogoScreen.xml");
         }
 
         #region Private
