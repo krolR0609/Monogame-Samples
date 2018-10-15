@@ -41,8 +41,34 @@ namespace Monogame_Sample_Project.Models.Graphics.Menu
             }
         }
 
+        public int ItemNumber
+        {
+            get
+            {
+                return itemNumber;
+            }
+        }
+
         private int itemNumber;
         private string id;
+
+        public void Transition(float alpha)
+        {
+            foreach (var item in Items)
+            {
+                item.Image.IsActive = true;
+                item.Image.Alpha = alpha;
+                if (alpha == 0.0f)
+                {
+                    item.Image.FadeEffect.Increase = true;
+                }
+                else
+                {
+                    item.Image.FadeEffect.Increase = false;
+                }
+            }
+        }
+
 
         private void AlignMenuItems()
         {

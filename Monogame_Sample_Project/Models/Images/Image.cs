@@ -174,6 +174,35 @@ namespace Monogame_Sample_Project.Models.Images
                 }
             }
         }
+
+        public void StoreEffects()
+        {
+            Effects = String.Empty;
+            foreach (var effect in effectList)
+            {
+                if (effect.Value.IsActive)
+                {
+                    Effects += effect.Key + ":";
+                }
+            }
+            if(Effects != String.Empty)
+                Effects.Remove(Effects.Length - 1);
+        }
+
+        public void RestoreEffects()
+        {
+            foreach (var effect in effectList)
+            {
+                DeactivateEffect(effect.Key);
+            }
+
+            string[] split = Effects.Split(':');
+            foreach (var s in split)
+            {
+                ActivateEffect(s);
+            }
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             origin = new Vector2(SourceRect.Width / 2, SourceRect.Height / 2);

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Menu>
+  <Axis>Y</Axis>
+  <Item>
+    <LinkType>Screen</LinkType>
+    <LinkID>SplashScreen</LinkID>
+    <Image>
+      <Text>N1123123</Text>
+    </Image>
+  </Item>
+  <Item>
+    <Image>
+      <Text>Load 12312Game</Text>
+    </Image>
+  </Item>
+  <Item>
+    <Image>
+      <Text>Optio123123ns</Text>
+    </Image>
+  </Item>
+  <Item>
+    <Image>
+      <Text>Credi123123ts</Text>
+    </Image>
+  </Item>
+</Menu>

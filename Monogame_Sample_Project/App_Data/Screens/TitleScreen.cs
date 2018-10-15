@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Monogame_Sample_Project.App_Data.Managers;
 using Monogame_Sample_Project.Models.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Monogame_Sample_Project.App_Data.Screens
     public class TitleScreen : GameScreen
     {
         private MenuManager menuManager;
-
+        
         public TitleScreen()
         {
             menuManager = new MenuManager();
@@ -22,7 +23,7 @@ namespace Monogame_Sample_Project.App_Data.Screens
         public override void LoadContent()
         {
             base.LoadContent();
-            menuManager.LoadContent("Load/TitleMenu.xml");
+            menuManager.LoadContent("Load/Menus/TitleMenu.xml");
         }
 
         public override void UnloadContent()
