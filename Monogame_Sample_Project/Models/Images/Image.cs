@@ -29,6 +29,7 @@ namespace Monogame_Sample_Project.Models.Images
 
         public Rectangle SourceRect;
         public FadeEffect FadeEffect; //Link for XML file.
+        public SpriteSheetEffect SpriteSheetEffect;
 
         [XmlIgnore]
         public Texture2D Texture;
@@ -146,8 +147,9 @@ namespace Monogame_Sample_Project.Models.Images
             ScreenManager.Instance.GraphicsDevice.SetRenderTarget(null);
 
             SetEffect<FadeEffect>(ref FadeEffect);
+            SetEffect<SpriteSheetEffect>(ref SpriteSheetEffect);
 
-            if(Effects != String.Empty)
+            if (Effects != String.Empty)
             {
                 string[] split = Effects.Split(':');
                 foreach (string item in split)

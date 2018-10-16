@@ -35,15 +35,18 @@ namespace Monogame_Sample_Project.Models.Game
 
         public virtual void Update(GameTime gameTime)
         {
+            Image.IsActive = true;
             if (Velocity.X == 0)
             {
                 if (InputManager.Instance.KeyDown(Keys.Down))
                 {
                     Velocity.Y = MoveSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    Image.SpriteSheetEffect.CurrentFrame.Y = 0;
                 }
                 else if (InputManager.Instance.KeyDown(Keys.Up))
                 {
                     Velocity.Y = -MoveSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    Image.SpriteSheetEffect.CurrentFrame.Y = 3;
                 }
                 else
                 {
@@ -56,10 +59,12 @@ namespace Monogame_Sample_Project.Models.Game
                 if (InputManager.Instance.KeyDown(Keys.Right))
                 {
                     Velocity.X = MoveSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    Image.SpriteSheetEffect.CurrentFrame.Y = 2;
                 }
                 else if (InputManager.Instance.KeyDown(Keys.Left))
                 {
                     Velocity.X = -MoveSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    Image.SpriteSheetEffect.CurrentFrame.Y = 1;
                 }
                 else
                 {
@@ -67,6 +72,12 @@ namespace Monogame_Sample_Project.Models.Game
                 }
             }
 
+            if(Velocity.X == 0 && Velocity.Y == 0)
+            {
+                Image.IsActive = false;
+            }
+
+            Image.Update(gameTime);
             Image.Position += Velocity;
         }
 

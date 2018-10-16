@@ -21,13 +21,13 @@ namespace Monogame_Sample_Project.App_Data
         {
             Dimensions = new Vector2(640, 480);
             IsFullScreen = false;
-            currentScreen = new SplashScreen();
+            currentScreen = new GameplayScreen();
 
             xmlGameScreenManger = new XmlManager<GameScreen>
             {
                 Type = currentScreen.Type
             };
-            currentScreen = xmlGameScreenManger.Load($"Load/LogoScreen.xml");
+            //currentScreen = xmlGameScreenManger.Load($"Load/LogoScreen.xml");
         }
 
         #region Private

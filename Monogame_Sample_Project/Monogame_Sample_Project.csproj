@@ -56,6 +56,7 @@
     <Compile Include="Models\Graphics\Menu\Menu.cs" />
     <Compile Include="Models\Graphics\Menu\MenuItem.cs" />
     <Compile Include="Models\Images\Effects\FadeEffect.cs" />
+    <Compile Include="Models\Images\Effects\SpriteSheetEffect.cs" />
     <Compile Include="Models\Images\Image.cs" />
     <Compile Include="Models\Images\ImageEffect.cs" />
     <Compile Include="Program.cs" />
