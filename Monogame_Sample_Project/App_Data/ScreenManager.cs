@@ -113,16 +113,19 @@ namespace Monogame_Sample_Project.App_Data
             currentScreen.LoadContent();
             Image.LoadContent();
         }
+
         public void UnloadContent()
         {
             currentScreen.UnloadContent();
             Image.UnloadContent();
         }
+
         public void Update(GameTime gameTime)
         {
             currentScreen.Update(gameTime);
             Transition(gameTime);
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             currentScreen.Draw(spriteBatch);

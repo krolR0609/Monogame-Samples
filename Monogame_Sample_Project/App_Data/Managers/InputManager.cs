@@ -46,6 +46,7 @@ namespace Monogame_Sample_Project.App_Data.Managers
             }
             return false;
         }
+
         public bool KeyReleased(params Keys[] keys)
         {
             foreach (Keys key in keys)
@@ -57,6 +58,7 @@ namespace Monogame_Sample_Project.App_Data.Managers
             }
             return false;
         }
+
         public bool KeyDown(params Keys[] keys)
         {
             foreach (Keys key in keys)

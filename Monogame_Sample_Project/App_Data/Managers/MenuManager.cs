@@ -16,6 +16,12 @@ namespace Monogame_Sample_Project.App_Data.Managers
         private Menu menu;
         private bool isTransitioning;
 
+        public MenuManager()
+        {
+            menu = new Menu();
+            menu.OnMenuChange += Menu_OnMenuChange;
+        }
+        
         private void Transition(GameTime gameTime)
         {
             if (isTransitioning)
@@ -41,17 +47,10 @@ namespace Monogame_Sample_Project.App_Data.Managers
             }
         }
 
-        public MenuManager()
-        {
-            menu = new Menu();
-            menu.OnMenuChange += Menu_OnMenuChange;
-        }
-
         private void Menu_OnMenuChange(object sender, EventArgs e)
         {
             XmlManager<Menu> xmlManager = new XmlManager<Menu>();
             menu.UnloadContent();
-            //Transition
             menu = xmlManager.Load(menu.ID);
             menu.LoadContent();
             menu.OnMenuChange += Menu_OnMenuChange;
@@ -77,7 +76,6 @@ namespace Monogame_Sample_Project.App_Data.Managers
             menu.UnloadContent();
         }
 
-        
         public void Update(GameTime gameTime)
         {
             if (!isTransitioning)

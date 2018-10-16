@@ -47,9 +47,11 @@
     <Compile Include="App_Data\Managers\MenuManager.cs" />
     <Compile Include="App_Data\Managers\XmlManager.cs" />
     <Compile Include="App_Data\ScreenManager.cs" />
+    <Compile Include="App_Data\Screens\GameplayScreen.cs" />
     <Compile Include="App_Data\Screens\SplashScreen.cs" />
     <Compile Include="App_Data\Screens\TitleScreen.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Models\Game\Player.cs" />
     <Compile Include="Models\Graphics\GameScreen.cs" />
     <Compile Include="Models\Graphics\Menu\Menu.cs" />
     <Compile Include="Models\Graphics\Menu\MenuItem.cs" />
@@ -118,10 +120,9 @@
     </None>
     <None Include="app.manifest" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Models\Sprites\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Load\Gameplay\Player.xml" />
     <Content Include="Load\Menus\TestMenu.xml" />
     <Content Include="Load\ScreenManager.xml" />
     <Content Include="Load\LogoScreen.xml" />
